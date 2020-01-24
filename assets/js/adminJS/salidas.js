@@ -613,3 +613,48 @@ function myRoundCero(num) {
     var exp = Math.pow(10, dec || 2); // 2 decimales por defecto
     return parseInt(num * exp, 10) / exp;
   }  
+
+  //funcion para el cambio
+  
+// para cambio de ***********************************************************************************************************************************************************************************************************************
+
+$('#efectivo').on('change',function(){
+   
+    cambio();
+});
+
+
+function cambio(){
+    if (Number($('#total_sub').val()) != 0 & Number($('#efectivo').val())!= 0 ) {
+        $devolver =  (Number($('#efectivo').val()) - Number($("#total_sub").val()).toFixed(2)) ;
+        $('#cambio').val($devolver);
+    }else{
+        $('#cambio').val(0);
+    }
+    
+}
+//validamos el cambio *******************************************
+    //agregamos una nueva funcion para validar que ingrese solamente número
+    jQuery.validator.addMethod("validarEfectivo",
+    function(value, element) {
+        if (Number(value)){
+                    
+            return true;
+        } else {
+        
+            return false;
+        }       
+    },
+    "Ingrese una cantidad válida."
+);
+
+$("#FormSalida").validate({
+    rules:{
+        efectivo: {
+            validarEfectivo:"#efectivo",
+        },
+    },
+    submitHandler: function(form){
+        form.submit();
+    }
+});

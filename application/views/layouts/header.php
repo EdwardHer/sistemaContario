@@ -37,7 +37,7 @@
     
 
      <script type="text/javascript"> 
-         var base_url = "http://localhost/inventario2/"; //carga la baseurl de todos los js que se cargan de los modulos 
+         var base_url = "http://localhost/sistemaContario/"; //carga la baseurl de todos los js que se cargan de los modulos 
     </script>
 </head>
 
